@@ -1,0 +1,15 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-csharp
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: carlosnogueira/helloworld-csharp
+          env:
+            - name: TARGET
+              value: "C# Sample v1"
+      imagePullSecrets:
+        - name: regcred
